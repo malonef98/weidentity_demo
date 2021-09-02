@@ -24,7 +24,17 @@ public class verify {
     public static void main(String[] args) throws IOException {
         CredentialService credentialService = new CredentialServiceImpl();
         verify v = new verify();
-        String Credential_Json = "{\"context\":\"https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1\",\"id\":\"7d1109fa-68c5-4c27-893f-e6154c194d34\",\"issuer\":\"did:weid:12138:0x79982f28806aa9aa4544a7c1a8cd270665d3b209\",\"issuanceDate\":1629450577,\"expirationDate\":2351448312,\"claim\":{\"name\":\"asic\",\"age\":11},\"proof\":{\"creator\":\"did:weid:12138:0x79982f28806aa9aa4544a7c1a8cd270665d3b209\",\"signature\":\"t1feyBgb9shi4TaoXN8T2n5j+N96SskMgiplSRd/nz4+bT/SKfwZRhriwg2Jiq1ac8+2fPK7ixAlkZdQGXh4YAA=\",\"created\":\"1629450577\",\"type\":\"Secp256k1\"},\"cptId\":2000000}\n";
+        String Credential_Json = "{\"context\":\"https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1\"," +
+                "\"id\":\"a4f27162-5932-48e2-868b-bdb60b475e6d\"," +
+                "\"issuer\":\"did:weid:12138:0x79982f28806aa9aa4544a7c1a8cd270665d3b209\"," +
+                "\"issuanceDate\":1629451079," +
+                "\"expirationDate\":2351448312," +
+                "\"claim\":{\"name\":\"asic\",\"age\":11}," +
+                "\"proof\":{\"creator\":\"did:weid:12138:0x79982f28806aa9aa4544a7c1a8cd270665d3b209\"," +
+                "\"signature\":\"SGpKMMI3dutgzKlW7feNdfj+8DbnIzCA+Od23h4XCZYQSG7Qj434mrHcOSUpiZ+UJ4pvFldpVHgIMTBoNMD3yQA=\",\"created\":\"1629451079\",\"type\":\"Secp256k1\"}," +
+                "\"cptId\":2000000}\n";
+
+        String Json2 = "{\"context\":\"https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1\",\"id\":\"b4cc22f3-c485-4664-beb7-4fca1ca9c5d2\",\"issuer\":\"did:weid:12138:0x61071c950fa976ac370ab5c940577ca07dc936a8\",\"issuanceDate\":1630573881,\"expirationDate\":1830619615,\"claim\":{\"name\":\"zhangsan\",\"age\":22},\"proof\":{\"creator\":\"did:weid:12138:0x61071c950fa976ac370ab5c940577ca07dc936a8#key0\",\"salt\":{\"name\":\"cA9e7\",\"age\":\"i8aVq\"},\"created\":1630573881,\"type\":\"Secp256k1\",\"signatureValue\":\"+7tsRsYVqTyo77Kc4EYwlEc24Jn89mnNbshFZevegwLpefh8v3gHWDsg0gHA6xsMk9h/jUkW0gB0fcDa7/MwMwA=\"},\"cptId\":2000000}\n";
         Credential c = v.getCredential(Credential_Json);
         ResponseData<Boolean> responseVerify = credentialService.verify(c);
         System.out.printf(responseVerify.toString());
